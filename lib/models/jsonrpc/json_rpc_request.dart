@@ -1,11 +1,13 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:wallet_connect/models/wc_method.dart';
 import 'package:wallet_connect/utils/constants.dart';
+import 'package:wallet_connect/utils/from_json.dart';
 
 part 'json_rpc_request.g.dart';
 
 @JsonSerializable()
 class JsonRpcRequest {
+  @JsonKey(fromJson: idFromJson)
   final int id;
   final String jsonrpc;
   final WCMethod? method;
