@@ -1,10 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:wallet_connect/utils/constants.dart';
+import 'package:wallet_connect/utils/from_json.dart';
 
 part 'json_rpc_response.g.dart';
 
 @JsonSerializable(genericArgumentFactories: true)
 class JsonRpcResponse<T> {
+  @JsonKey(fromJson: idFromJson)
   final int id;
   final String jsonrpc;
   final T result;
